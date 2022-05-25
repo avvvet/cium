@@ -1,62 +1,61 @@
-# Block Folder 
+# Prime Lab Golang Blockchain Application
+
+## Block Folder 
 
 This module contains the logic for core block building for blockchain like adding the block and writing the transactions 
 
 
-# blockchain_node
+## blockchain_node
 
 this module is meant for running the node for blockchian . it can on any port or ip address
 
 
-# cmd 
+## cmd 
 
 This module contains the logic to get the localhost 
 
-# utils 
+## utils 
 
 This module is responsible for elliptic curve , signature , private key generating , public key generating , rest api call to blockchain node , the attributes that are coming from there.
 
-# wallet 
+## wallet 
 
 structure for the wallet 
 
 
-# wallet_app
+## wallet_app
 
 This module contains the frontend and webapp part which will communicate with blockchain node.
 
+# How to run the Nodes, Wallets & Transactions?
 
 
-TO RUN SINGLE NODE:-
-
-/repo/                    cd blockchain_node 
-/repo/blockchain_node/    go run . -port 5000
-
-To check if node is running , go to 127.0.0.1:5000
-
-
+## Nodes 
 The node at the start will have info about genesis block. 
 
+#### Follow the below steps to run nodes
 
-TO RUN MULTIPLE NODES
+1. Go to your code editor's terminal
+2. Go to blockchain_node directory (... **cd blockchain_node** ... type in your terminal and press enter)
+3. now run command in your terminal
+   1. **go run . -port 5000**  
+      1. **.** : run all go files inside of directory
+   2. ... **go run blockchain_server.go main.go -port 5000** ...
 
-
-Open a new terminal and repeat above steps with a different Port No.
-
-
-/repo/                    cd blockchain_node 
-/repo/blockchain_node/    go run . -port 5001
-
-To check if node is running ,open browser and go to 127.0.0.1:5000   and  127.0.0.1:5001
-
-
-CREATE WALLET :-
-
-To create a wallet , navigate to wallet_app directory in the repository . Then run it on port 8080 and connect it to a running node which is at 127.0.0.1:5000 
+1 node is running on port ***127.0.0.1:5000*** And for other 2 nodes you need to follow above steps  just change the port no. (Ex: node 1 is running at ***127.0.0.1:5000***, node 2 is running at ***127.0.0.1:5001*** and node 3 is running at ***127.0.0.1:5002***)
 
 
-cd wallet_app
-go run . -port 8080 -gateway http://127.0.0.1:5000
+## WALLET :-
+
+#### Follow the below steps to run wallet app
+
+1. Go to your code editor's terminal
+2. Go to wallet_app directory (... **cd wallet_app** ... type in your terminal and press enter)
+3. now run command in your terminal
+   1. **go run . -port 8080 -gateway http://127.0.0.1:5000** 
+      1. **.** : run all go files inside of directory
+   2. **go run main.go wallet_server.go -port 8080 -gateway http://127.0.0.1:5000** 
+   3. You need running node as wallet app gateway
 
 To check if a new wallet is created , go to http://127.0.0.1:8080 .You will see a Public key , Private key and Blockchain Address 
 
@@ -67,7 +66,7 @@ You will see the token transferred to wallet B . One of the nodes will validate 
 
 
 
-TRANSACTION POOL :-
+## TRANSACTION POOL :-
 
 Transaction pool is the place where contains all of unconfirmed transactions. Transaction pool is stored on a special device and its contents can be accessed, observed in real time.
 
