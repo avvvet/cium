@@ -1,31 +1,48 @@
 # Prime Lab Golang Blockchain Application
 
-## Block Folder 
+## block Folder 
 
 This module contains the logic for core block building for blockchain like adding the block and writing the transactions 
 
 
-## blockchain_node
+## blockchain_node Folder
 
 this module is meant for running the node for blockchian . it can on any port or ip address
 
 
-## cmd 
+## cmd Folder
 
 This module contains the logic to get the localhost 
 
-## utils 
+## utils Folder
 
 This module is responsible for elliptic curve , signature , private key generating , public key generating , rest api call to blockchain node , the attributes that are coming from there.
 
-## wallet 
+## wallet Folder
 
 structure for the wallet 
 
 
-## wallet_app
+## wallet_app Folder
 
 This module contains the frontend and webapp part which will communicate with blockchain node.
+
+## What our Blockchain support?
+
+#### Write a new Transaction to the blockchain.
+
+#### Create a new multiple Wallet on your blockchain.
+
+#### Reading
+ 1. View Transaction Status & Details
+ 2. View Overall Blockchain Status
+ 3. View Current Block
+ 4. Get Current Nodes List
+
+
+# Working Diagram 
+![image](https://user-images.githubusercontent.com/103436234/170375896-f5454d55-3bb3-4276-bfb1-3381198af184.png)
+
 
 # How to run the Nodes, Wallets & Transactions?
 
