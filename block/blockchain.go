@@ -25,7 +25,7 @@ const (
 	BLOCKCHAIN_PORT_RANGE_END        = 5003
 	NEIGHBOR_IP_RANGE_START          = 0
 	NEIGHBOR_IP_RANGE_END            = 1
-	BLOCKCHIN_NEIGHBOR_SYNC_TIME_SEC = 20
+	BLOCKCHIN_NEIGHBOR_SYNC_TIME_SEC = 40
 )
 
 type Block struct {
@@ -130,7 +130,7 @@ func (bc *Blockchain) Chain() []*Block {
 }
 
 func (bc *Blockchain) Run() {
-	//bc.StartSyncNeighbors()
+	bc.StartSyncNeighbors()
 	bc.ResolveConflicts()
 	bc.StartMining()
 }

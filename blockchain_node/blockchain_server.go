@@ -110,21 +110,21 @@ func (bcs *BlockchainServer) Transactions(w http.ResponseWriter, req *http.Reque
 			io.WriteString(w, string(utils.JsonStatus("fail")))
 			return
 		}
-		publicKey := utils.PublicKeyFromString(*t.SenderPublicKey)
-		signature := utils.SignatureFromString(*t.Signature)
-		bc := bcs.GetBlockchain()
-		isUpdated := bc.AddTransaction(*t.SenderBlockchainAddress,
-			*t.RecipientBlockchainAddress, *t.Value, publicKey, signature)
+		// publicKey := utils.PublicKeyFromString(*t.SenderPublicKey)
+		// signature := utils.SignatureFromString(*t.Signature)
+		// bc := bcs.GetBlockchain()
+		// isUpdated := bc.AddTransaction(*t.SenderBlockchainAddress,
+		// 	*t.RecipientBlockchainAddress, *t.Value, publicKey, signature)
 
-		w.Header().Add("Content-Type", "application/json")
-		var m []byte
-		if !isUpdated {
-			w.WriteHeader(http.StatusBadRequest)
-			m = utils.JsonStatus("fail")
-		} else {
-			m = utils.JsonStatus("success")
-		}
-		io.WriteString(w, string(m))
+		// w.Header().Add("Content-Type", "application/json")
+		// var m []byte
+		// if !isUpdated {
+		// 	w.WriteHeader(http.StatusBadRequest)
+		// 	m = utils.JsonStatus("fail")
+		// } else {
+		// 	m = utils.JsonStatus("success")
+		// }
+		// io.WriteString(w, string(m))
 	case http.MethodDelete:
 		bc := bcs.GetBlockchain()
 		bc.ClearTransactionPool()
