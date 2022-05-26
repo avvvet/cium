@@ -1,3 +1,41 @@
+
+cium blockchain – a name drived from the Element Francium , dropping Francium, we get cium. 
+It occurs naturally, it decays so quickly it's very rare. In fact, scientists have never had a large enough sample of francium to know what it actually looks like!
+
+What do we have in this repo, 
+
+- blockchain node
+– a go application with integrated web server, ready to run in multiple instance in a given network address using unique ports
+
+- to run it `cd to blockchain_node` and run `go run . Port 5000`.  to run multiple nodes use similar command with different `-port 500x`
+
+- when the node run, it will generate automatically wallet address (blockchain address) that will be used to hold incentive token rewarded ,for participating in the network blockchain.
+
+* For demonstration/development purpose , any participant node will be rewarded 1.0 CIUM per chain validation or new block creation.
+
+* node consensus with nearby nodes would happen 20sec
+
+* current mining difficultly is set to 3 leading zeros hashes
+
+- each node will have its own temporary transaction pool before creating new block. Once mining happen and new block generated , transaction pool will be cleared by the node will be available for new transactions.
+
+- each nodes with a given wallet address will response with total amount of the wallet
+
+- the node comes to consensus taking the longest valid chains from the network.
+
+- nodes use elliptic curve digital algorithm to generate asymmetric keys
+
+- to view the temporary transaction pool of the node ``http://127.0.0.1:500x/transaction` 
+
+- Wallet app
+
+- autonomous web app node with web server that renders UI for user wallet interaction 
+- generates non custodian wallet address (public and private key with short form of the public key)
+- to the run the app `go run . -port 8080 -gateway http://127.0.0.1:5000`  the `- gateway flag is to   connect to nearest available blockchain node. (to do:  need to search nearby running node and attache)
+- currently if the web app page loaded refreshed, new wallet address will be generated and attached.
+
+Explorer – currently we can view blocks and transactions detail using any node address `http://127.0.0.1:500x/chain`
+
 # Prime Lab Golang Blockchain Application
 
 ## block Folder 
